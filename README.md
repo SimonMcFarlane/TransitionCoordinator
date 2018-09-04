@@ -47,9 +47,11 @@ The `TransitionAnimator` is the component that descibes the actual animation tha
 
 The `TransitionAnimator` conforms to the `UIViewControllerAnimatedTransitioning` protocol and implements the functions:
 
-	public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+```Swift
+public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
 
-	public func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+public func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+```
 	
 This allows you to define the both the duration and the actual animation itself. To create your own animations you should subclass `TransitionAnimator` and implement these functions. See the bundled project for transition animator examples.
 
@@ -68,28 +70,32 @@ When pushing a `UIViewController` onto the stack of a `UINavigationController` t
 
 ###### To perform the push transition programmatically:
 
-	guard let navigationController = self.navigationController else { return }
-	let viewController = PushableViewController()
+```Swift
+guard let navigationController = self.navigationController else { return }
+let viewController = PushableViewController()
 	
-	TransitionCoordinator.sharedCoordinator.setPushTransitionAnimator(TransitionAnimatorTopToBottom(),
-	                                                                  forViewController: viewController,
-	                                                                  withNavigationController: navigationController)
+TransitionCoordinator.sharedCoordinator.setPushTransitionAnimator(TransitionAnimatorTopToBottom(),
+                                                                  forViewController: viewController,
+                                                                  withNavigationController: navigationController)
 	
-	navigationController.pushViewController(viewController, animated: true)
+navigationController.pushViewController(viewController, animated: true)
+```
 
 Note that the `TransitionCoordinator` **must** be invoked before the view controller is pushed.
 
 
 ###### To perform the push transition via UIStoryboardSegue:
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-	{
-		guard let navigationController = self.navigationController else { return }
-		    
-		TransitionCoordinator.sharedCoordinator.setPushTransitionAnimator(TransitionAnimatorTopToBottom(),
-		                                                                  forViewController: segue.destination,
-		                                                                  withNavigationController: navigationController)
+```Swift
+override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+{
+	guard let navigationController = self.navigationController else { return }
+	    
+	TransitionCoordinator.sharedCoordinator.setPushTransitionAnimator(TransitionAnimatorTopToBottom(),
+	                                                                  forViewController: segue.destination,
+	                                                                  withNavigationController: navigationController)
 }
+```
 
 ##### Presenting a view controller
 
@@ -97,21 +103,25 @@ When presenting a `UIViewController` modally the view controller must conform to
 
 ###### To perform the present transition programmatically:
 
-    let viewController = PresentableViewController()
-    let navigationController = UINavigationController(rootViewController: viewController)
+```Swift
+let viewController = PresentableViewController()
+let navigationController = UINavigationController(rootViewController: viewController)
     
-	TransitionCoordinator.sharedCoordinator.setPresentTransitionAnimator(TransitionAnimatorTopToBottom(),
-                                                                         forViewController: navigationController)
+TransitionCoordinator.sharedCoordinator.setPresentTransitionAnimator(TransitionAnimatorTopToBottom(),
+                                                                     forViewController: navigationController)
     
-    self.present(navigationController, animated: true, completion: nil)
+self.present(navigationController, animated: true, completion: nil)
+```
 
 ###### To perform the present transition via UIStoryboardSegue:
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        TransitionCoordinator.sharedCoordinator.setPresentTransitionAnimator(TransitionAnimatorTopToBottom(),
-                                                                             forViewController: segue.destination)
-    }
+```Swift
+override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+{
+    TransitionCoordinator.sharedCoordinator.setPresentTransitionAnimator(TransitionAnimatorTopToBottom(),
+                                                                         forViewController: segue.destination)
+}
+```
 
 ## Example
 
