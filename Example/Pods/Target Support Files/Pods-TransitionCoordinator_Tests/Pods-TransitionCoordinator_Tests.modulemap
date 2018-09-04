@@ -1,0 +1,6 @@
+framework module Pods_TransitionCoordinator_Tests {
+  umbrella header "Pods-TransitionCoordinator_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
