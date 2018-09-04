@@ -19,13 +19,14 @@ Pod::Spec.new do |s|
 
   s.description      = 'TransitionCoordinator handles the use of custom animations when either pushing a view controller onto a navigation stack or when modally presenting a view controller.'
 
-  s.homepage         = 'https://github.com/Simon McFarlane/TransitionCoordinator'
+  s.homepage         = 'https://github.com/SimonMcFarlane/TransitionCoordinator'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Simon McFarlane' => 'simon@plusplus.ltd' }
-  s.source           = { :git => 'https://github.com/Simon McFarlane/TransitionCoordinator.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/SimonMcFarlane/TransitionCoordinator.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.swift_version = '4.1'
 
   s.source_files = 'TransitionCoordinator/Classes/**/*'
   
