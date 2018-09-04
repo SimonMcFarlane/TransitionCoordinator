@@ -1,0 +1,6 @@
+framework module TransitionCoordinator {
+  umbrella header "TransitionCoordinator-umbrella.h"
+
+  export *
+  module * { export * }
+}

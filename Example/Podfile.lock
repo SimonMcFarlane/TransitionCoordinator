@@ -1,0 +1,16 @@
+PODS:
+  - TransitionCoordinator (0.1.0)
+
+DEPENDENCIES:
+  - TransitionCoordinator (from `../`)
+
+EXTERNAL SOURCES:
+  TransitionCoordinator:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TransitionCoordinator: 6c2735df153cb9be52ded572395b9712d81b4a12
+
+PODFILE CHECKSUM: 6b2f5b72e5a710f299b10b85f7fca1241d958854
+
+COCOAPODS: 1.5.3
